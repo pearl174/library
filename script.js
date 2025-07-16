@@ -18,5 +18,16 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 function display() {
-    
+    const parent = document.querySelector(".library-container")
+    for (let i = 0; i < theLibrary.length; i++) {
+        const div = document.createElement("div");
+        const book = theLibrary[i];
+        div.innerText = `
+        <b>Title</b>: ${book.title}<br>
+        <b>Author</b>: ${book.author}<br>
+        <b>Pages</b>: ${book.pages}<br>
+        `;
+    }
+
+    parent.appendChild(div);
 }
