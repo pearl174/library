@@ -1,0 +1,10 @@
+.library-container {
+    display: grid;
+}
+
+.library-container > div {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 5px;
+}

@@ -13,21 +13,23 @@ function Book(title, author, pages, read) {
 
 
 function addBookToLibrary(title, author, pages, read) {
-    book = new Book(title, author, pages, read);
+    let book = new Book(title, author, pages, read);
     theLibrary.push(book);
 }
 
 function display() {
-    const parent = document.querySelector(".library-container")
+    const parent = document.querySelector(".library-container");
     for (let i = 0; i < theLibrary.length; i++) {
         const div = document.createElement("div");
         const book = theLibrary[i];
-        div.innerText = `
+        div.innerHTML = `
         <b>Title</b>: ${book.title}<br>
         <b>Author</b>: ${book.author}<br>
         <b>Pages</b>: ${book.pages}<br>
         `;
+        parent.appendChild(div);
     }
-
-    parent.appendChild(div);
 }
+
+// const tolkien = addBookToLibrary("The Hobbit", "Tolkien", 256, false);
+// display();
