@@ -23,13 +23,14 @@ function display() {
         const div = document.createElement("div");
         const book = theLibrary[i];
         div.innerHTML = `
-        <b>Title</b>: ${book.title}<br>
-        <b>Author</b>: ${book.author}<br>
-        <b>Pages</b>: ${book.pages}<br>
+        <b>${book.title}</b><br><br>
+        ${book.author}<br>
+        ${book.pages} pages<br>
         `;
         parent.appendChild(div);
     }
 }
 
-// const tolkien = addBookToLibrary("The Hobbit", "Tolkien", 256, false);
-// display();
+const tolkien = addBookToLibrary("The Hobbit", "Tolkien", 256, false);
+const tolkien2 = addBookToLibrary("The Hobbit", "Tolkien", 256, false);
+display();
