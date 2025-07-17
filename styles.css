@@ -33,7 +33,7 @@ body {
     padding: 2rem;
 }
 
-button {
+.add-book {
   background-color: #3a3a3a;
   color: #ffffff; 
   font-size: 1.5rem;
@@ -117,4 +117,19 @@ form .checkbox-wrapper {
     padding: 0.75rem 1rem;
     flex: 1;
     font-size: 1.2rem;
+}
+
+.library-container > div {
+    text-align: center;
+}
+
+.remove-book {
+    margin-top: 1.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    background-color: #3a3a3a;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
 }

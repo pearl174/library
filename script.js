@@ -27,6 +27,7 @@ function display() {
         <b>${book.title}</b><br><br>
         ${book.author}<br>
         ${book.pages} pages<br>
+        <button class="remove-book" data-id="${book.id}">Remove</button>
         `;
         parent.appendChild(div);
     }
@@ -62,4 +63,5 @@ formButton.addEventListener("click", (e) => {
     document.querySelector("#form-dialog").close();
     document.querySelector("#book-form").reset();
     display();
-})
+});
+
