@@ -11,7 +11,7 @@ function Book(title, author, pages, read) {
     }
 }
 
-Book.prototype.toggleRead = () => {
+Book.prototype.toggleRead = function() {
     this.read = !this.read;
 };
 
@@ -31,7 +31,7 @@ function display() {
         ${book.author}<br>
         ${book.pages} pages<br>
         ${book.read? "Read":"Not Read"}<br>
-        <button class="toggle-read">${book.read? "Mark as Not Read":"Mark as Read"}</button>
+        <button class="toggle-read" data-id=${book.id}>${book.read? "Mark as Not Read":"Mark as Read"}</button>
         <button class="remove-book" data-id="${book.id}">Remove</button>
         `;
         parent.appendChild(div);
@@ -72,8 +72,15 @@ formButton.addEventListener("click", (e) => {
 
 document.querySelector(".library-container").addEventListener("click", (e) => {
     if (e.target.classList.contains("remove-book")) {
-        const idToRemove = parseInt(e.target.dataset.id);
+        const idToRemove = e.target.dataset.id;
         theLibrary = theLibrary.filter(book => book.id !== idToRemove);
         e.target.closest("div").remove();
+    }
+
+    if (e.target.classList.contains("toggle-read")) {
+        const toggleId = e.target.dataset.id;
+        const book = theLibrary.find(book => book.id === toggleId);
+        book.toggleRead();
+        display();
     }
 });
