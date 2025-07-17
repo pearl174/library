@@ -14,14 +14,14 @@
             <dialog id="form-dialog">
                 <form method="dialog" id="book-form">
                     <label for="title">Title</label>
-                    <input type="text" name="title" id="title">
+                    <input type="text" name="title" id="title" required>
                     <label for="author">Author</label>
-                    <input type="text" name="author" id="author">
+                    <input type="text" name="author" id="author" required>
                     <label for="pages">Pages</label>
-                    <input type="number" name="pages" id="pages">
+                    <input type="number" name="pages" id="pages" required>
                     <label for="Read">Read</label>
                     <input type="checkbox" name="read" id="read">
-                    <button type="submit">Add Book</button>
+                    <button type="submit" id="submit-book">Add Book</button>
                 </form>
             </dialog>
         </div>

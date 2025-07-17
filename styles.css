@@ -1,12 +1,12 @@
 body {
     padding: 0px;
     margin: 0px;
-    font-size: 28px;
+    font-size: 1.7rem;
 }
 .library-container {
     display: grid;
     padding: 2rem;
-    gap: 75px;
+    gap: 4.55rem;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
@@ -30,14 +30,17 @@ body {
     background-color: #1f1f1f;
     color: #f0f0f0;
     height: 100vh;
+    padding: 2rem;
 }
 
 button {
   background-color: #3a3a3a;
   color: #ffffff; 
-  font-size: 25px;
+  font-size: 1.5rem;
   padding: 10px;
   border-radius: 10px;
   display: block;
   margin: 5rem auto;
+  max-width: 80%;
 }
+
