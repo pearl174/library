@@ -11,6 +11,9 @@ function Book(title, author, pages, read) {
     }
 }
 
+Book.prototype.toggleRead = () => {
+    this.read = !this.read;
+};
 
 function addBookToLibrary(title, author, pages, read) {
     let book = new Book(title, author, pages, read);
@@ -27,15 +30,17 @@ function display() {
         <b>${book.title}</b><br><br>
         ${book.author}<br>
         ${book.pages} pages<br>
+        ${book.read? "Read":"Not Read"}<br>
+        <button class="toggle-read">${book.read? "Mark as Not Read":"Mark as Read"}</button>
         <button class="remove-book" data-id="${book.id}">Remove</button>
         `;
         parent.appendChild(div);
     }
 }
 
-// const tolkien = addBookToLibrary("The Hobbit", "Tolkien", 256, false);
-// const tolkien2 = addBookToLibrary("The Hobbit", "Tolkien", 256, false);
-// display();
+const tolkien = addBookToLibrary("The Hobbit", "Tolkien", 256, false);
+const tolkien2 = addBookToLibrary("The Hobbit", "Tolkien", 256, false);
+display();
 
 // add event listener to add book
 const button = document.querySelector(".add-book");
