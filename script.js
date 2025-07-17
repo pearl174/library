@@ -34,3 +34,9 @@ function display() {
 const tolkien = addBookToLibrary("The Hobbit", "Tolkien", 256, false);
 const tolkien2 = addBookToLibrary("The Hobbit", "Tolkien", 256, false);
 display();
+
+// add event listener to add book
+const button = document.querySelector(".add-book");
+button.addEventListener("click", () => {
+    document.querySelector("#form-dialog").showModal();
+});
