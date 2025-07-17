@@ -1,4 +1,4 @@
-const theLibrary = [];
+let theLibrary = [];
 
 function Book(title, author, pages, read) {
     this.id = crypto.randomUUID();
@@ -65,3 +65,10 @@ formButton.addEventListener("click", (e) => {
     display();
 });
 
+document.querySelector(".library-container").addEventListener("click", (e) => {
+    if (e.target.classList.contains("remove-book")) {
+        const idToRemove = parseInt(e.target.dataset.id);
+        theLibrary = theLibrary.filter(book => book.id !== idToRemove);
+        e.target.closest("div").remove();
+    }
+});
