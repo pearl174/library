@@ -1,19 +1,22 @@
-let theLibrary = [];
+const theLibrary = [];
 
-function Book(title, author, pages, read) {
-    this.id = crypto.randomUUID();
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.info = function () {
-        return `${title}, ${author}, ${pages}, ${read}`;
+class Book {
+    constructor(title, author, pages, read) {
+        this.id = crypto.randomUUID();
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+
+    toggleRead() {
+        this.read = !this.read;
+    }
+
+    info() {
+        return `${this.title}, ${this.author}, ${this.pages}, ${this.read}`;
     }
 }
-
-Book.prototype.toggleRead = function() {
-    this.read = !this.read;
-};
 
 function addBookToLibrary(title, author, pages, read) {
     let book = new Book(title, author, pages, read);
@@ -58,8 +61,8 @@ formButton.addEventListener("click", (e) => {
     }
     const title = document.querySelector("#title").value;
     const author = document.querySelector("#author").value;
-    const pages = document.querySelector("#pages").value;
-    const read = document.querySelector("#read").value;
+    const pages = parseInt(document.querySelector("#pages").value, 10);
+    const read = document.querySelector("#read").value === true;
     if (parseInt(pages) <= 0) {
     alert("Page count must be positive!");
     return;
@@ -73,7 +76,9 @@ formButton.addEventListener("click", (e) => {
 document.querySelector(".library-container").addEventListener("click", (e) => {
     if (e.target.classList.contains("remove-book")) {
         const idToRemove = e.target.dataset.id;
-        theLibrary = theLibrary.filter(book => book.id !== idToRemove);
+        // theLibrary = theLibrary.filter(book => book.id !== idToRemove);
+        const index = theLibrary.findIndex(book => book.id === idToRemove);
+        if (index !== -1) theLibrary.splice(index, 1);
         e.target.closest("div").remove();
     }
 
